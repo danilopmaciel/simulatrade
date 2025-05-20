@@ -26,10 +26,16 @@
       <label for="secretKey">Secret Key (visualização)</label>
       <input type="password" id="secretKey" disabled placeholder="Sua Secret Key da Binance">
     </div>
-    <button id="btnStartBot">Ligar Simulador</button>
-    <button id="btnStopBot" disabled>Desligar Simulador</button>
-    <button id="btnTest" disabled>Testar Notificação</button>
-    <button id="btnDiscord" disabled>Testar Discord</button>
+    <div class="input-group">
+      <label for="discordWebhook">Webhook Discord</label>
+      <input type="text" id="discordWebhook" placeholder="Cole seu webhook Discord">
+    </div>
+    <div class="button-group">
+      <button id="btnToggleBot">Ligar Simulador</button>
+      <button id="btnTest">Testar Notificação</button>
+      <button id="btnDiscord">Testar Discord</button>
+      <button id="btnToggleDiscord" disabled>Ativar Notificações Discord</button>
+    </div>
   </div>
 
   <!-- Resumo: capital, posição, TP, SL, R/R -->
@@ -61,7 +67,18 @@
       <div id="simulationLog">
         <h3>Simulação de Posições</h3>
         <table id="simulationTable">
-          <thead><tr><th>Entrada</th><th>Side</th><th>Preço Entrada</th><th>Saída</th><th>Preço Saída</th><th>Qtd.</th><th>P&L ($)</th><th>%</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Entrada</th>
+              <th>Side</th>
+              <th>Preço Entrada</th>
+              <th>Saída</th>
+              <th>Preço Saída</th>
+              <th>Qtd.</th>
+              <th>P&L ($)</th>
+              <th>%</th>
+            </tr>
+          </thead>
           <tbody id="simulationBody"></tbody>
         </table>
       </div>
