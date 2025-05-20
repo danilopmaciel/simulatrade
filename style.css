@@ -1,0 +1,68 @@
+/* CSS para Bot Simulator - style.css */
+
+/* Reset básico */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; color: #333; }
+
+/* Cabeçalho compacto */
+header { background: #2c3e50; color: #fff; padding: 0.5rem 1rem; text-align: center; }
+header h1 { margin: 0; font-size: 1.4rem; }
+header #countdown { font-size: 0.8rem; margin-top: 0.2rem; }
+
+/* Painel de controles */
+.controls-panel { background: #fff; padding: 0.5rem 1rem; margin: 0.5rem auto; border-radius: 8px; max-width: 1600px; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; align-items: flex-end; }
+.controls-panel .input-group { flex: 1 1 180px; }
+.controls-panel .input-group label { font-size: 0.75rem; }
+.controls-panel .input-group input { padding: 0.4rem; font-size: 0.8rem; width: 100%; }
+.controls-panel button { padding: 0.5rem 1rem; font-size: 0.8rem; }
+
+/* Resumo (capital, posição, TP, SL, R/R) */
+.summary-panel { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0.5rem auto; max-width: 1600px; }
+.summary-panel .trade-info { flex: 1 1 180px; margin: 0; padding: 0.4rem 0.6rem; text-align: center; font-weight: bold; border-radius: 4px; border: 1px solid #ccc; background: #f0f0f0; font-size: 0.85rem; }
+.trade-info.buy { background: #e6ffe6; color: #0a662a; border-color: #0a662a; }
+.trade-info.sell { background: #ffe6e6; color: #a10a0a; border-color: #a10a0a; }
+.trade-info.neutral { background: #f0f0f0; color: #555; border-color: #ccc; }
+
+/* Layout principal */
+#layout { display: flex; width: 95%; max-width: 1600px; margin: 0 auto; gap: 1rem; }
+#chart-container { flex: 5; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 1rem; }
+#chart { width: 100%; height: 600px; }
+#side-panel { flex: 1; min-width: 350px; display: flex; flex-direction: column; gap: 1rem; }
+
+/* Tabelas laterais */
+#signalHistory, #tradeHistory, #simulationLog { background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+#simulationLog { max-height: 250px; overflow-y: auto; }
+
+/* Ajustes na tabela de simulação de posições */
+#simulationTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+#simulationTable th, #simulationTable td {
+  border: 1px solid #eee;
+  padding: 4px;
+  text-align: center;
+  font-size: 0.8rem;
+  word-wrap: break-word;
+  white-space: normal;
+}
+#simulationTable th {
+  background: #f0f0f0;
+  color: #555;
+}
+#simulationTable td.profit { color: #0a662a; }
+#simulationTable td.loss   { color: #a10a0a; }
+
+/* Log de erros */
+#errorLog { max-height: 150px; overflow-y: auto; background: #fff0f0; border: 1px solid #a10a0a; color: #a10a0a; padding: 1rem; border-radius: 8px; }
+#errorLog h3 { margin-top: 0; color: #a10a0a; }
+#errorLog pre { margin: 0; font-size: 0.8rem; white-space: pre-wrap; word-wrap: break-word; }
+
+/* Responsividade */
+@media (max-width: 800px) {
+  .controls-panel, .summary-panel { flex-direction: column; align-items: stretch; }
+  .summary-panel .trade-info { flex: 1 1 100%; }
+  #side-panel { min-width: auto; }
+  #layout { flex-direction: column; }
+}
