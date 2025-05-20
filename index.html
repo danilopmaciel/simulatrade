@@ -1,88 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BTC/USDT FUTURES BOT - SIMULADOR (15m)</title>
-  <!-- Estilos externos -->
+
+  <!-- Link para o CSS -->
   <link rel="stylesheet" href="style.css">
+
   <!-- Plotly.js -->
   <script src="https://cdn.plot.ly/plotly-2.29.1.min.js"></script>
 </head>
 <body>
-  <!-- Cabeçalho -->
   <header>
     <h1>BTC/USDT FUTURES BOT - SIMULADOR (15m)</h1>
     <div id="countdown">Próximo candle em: --:--</div>
   </header>
 
-  <!-- Controles do Simulador -->
   <div class="controls-panel">
     <div class="input-group">
-      <label for="apiKey">API Key (visualização)</label>
-      <input type="text" id="apiKey" disabled placeholder="Sua API Key da Binance">
+      <label>API Key (visualização)</label>
+      <input id="apiKey" type="text" disabled placeholder="Sua API Key da Binance">
     </div>
     <div class="input-group">
-      <label for="secretKey">Secret Key (visualização)</label>
-      <input type="password" id="secretKey" disabled placeholder="Sua Secret Key da Binance">
+      <label>Secret Key (visualização)</label>
+      <input id="secretKey" type="password" disabled placeholder="Sua Secret Key da Binance">
     </div>
     <div class="input-group">
-      <label for="discordWebhook">Webhook Discord</label>
-      <input type="text" id="discordWebhook" placeholder="Cole seu webhook Discord">
+      <label>Webhook Discord</label>
+      <input id="discordWebhook" type="text" placeholder="Cole seu webhook Discord">
     </div>
     <div class="button-group">
       <button id="btnToggleBot">Ligar Simulador</button>
-      <button id="btnTest">Testar Notificação</button>
-      <button id="btnDiscord">Testar Discord</button>
+      <button id="btnTest" disabled>Testar Notificação</button>
+      <button id="btnDiscord" disabled>Testar Discord</button>
       <button id="btnToggleDiscord" disabled>Ativar Notificações Discord</button>
     </div>
   </div>
 
-  <!-- Resumo: capital, posição, TP, SL, R/R -->
   <div class="summary-panel">
     <div id="currentCapitalDisplay" class="trade-info neutral">Capital Atual: $0.00</div>
     <div id="entryInfo" class="trade-info neutral">Nenhuma posição simulada</div>
-    <div id="takeProfitSuggestion" class="trade-info neutral">Take Profit sugerido: -</div>
-    <div id="stopSuggestion" class="trade-info neutral">Stop Loss sugerido: -</div>
+    <div id="takeProfitSuggestion" class="trade-info neutral">Take Profit: -</div>
+    <div id="stopSuggestion" class="trade-info neutral">Stop Loss: -</div>
     <div id="riskReward" class="trade-info neutral">Risco/Recompensa: -</div>
   </div>
 
-  <!-- Área principal: gráfico e painel lateral -->
   <div id="layout">
     <div id="chart-container">
       <div id="chart"></div>
     </div>
     <div id="side-panel">
-      <!-- Sinais Recentes -->
       <div id="signalHistory">
         <h3>Sinais Recentes</h3>
         <ul id="signalList"></ul>
       </div>
-      <!-- Backtest -->
       <div id="tradeHistory">
         <h3>Histórico de Trades (Backtest)</h3>
-        <pre id="backtestResult">Carregando...</pre>
+        <pre id="backtestResult">Carregando…</pre>
       </div>
-      <!-- Simulação de Posições -->
       <div id="simulationLog">
         <h3>Simulação de Posições</h3>
         <table id="simulationTable">
           <thead>
             <tr>
-              <th>Entrada</th>
-              <th>Side</th>
-              <th>Preço Entrada</th>
-              <th>Saída</th>
-              <th>Preço Saída</th>
-              <th>Qtd.</th>
-              <th>P&L ($)</th>
-              <th>%</th>
+              <th>Entrada</th><th>Side</th><th>Preço Ent.</th><th>Saída</th>
+              <th>Preço Saída</th><th>Qtd.</th><th>P&L ($)</th><th>%</th>
             </tr>
           </thead>
           <tbody id="simulationBody"></tbody>
         </table>
       </div>
-      <!-- Erros e Observações -->
       <div id="errorLog">
         <h3>Relatório de Erros e Observações</h3>
         <pre id="logOutput"></pre>
@@ -90,7 +78,7 @@
     </div>
   </div>
 
-  <!-- Script externo -->
+  <!-- Script JavaScript externo -->
   <script src="script.js"></script>
 </body>
 </html>
